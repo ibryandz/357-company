@@ -204,3 +204,52 @@ function startAnimation() {
 startAnimation();
 
 
+// ABOUT ANIM
+
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll('.section__info');
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function checkVisibility() {
+        sections.forEach(section => {
+            if (isElementInViewport(section)) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
+        });
+    }
+
+    // Initial check
+    checkVisibility();
+
+    // Check on scroll
+    window.addEventListener('scroll', checkVisibility);
+});
+
+
+// TEAM 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const teamItems = document.querySelectorAll('.team__li');
+    const teamImage = document.querySelector('.team__img');
+
+    teamItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Get the URL from the data attribute
+            const imageUrl = item.getAttribute('data-image-url');
+            
+            // Update the background image of the team__img element
+            teamImage.style.backgroundImage = `url(${imageUrl})`;
+        });
+    });
+});
