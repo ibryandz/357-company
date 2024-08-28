@@ -588,6 +588,13 @@ margin-left: auto ;
     place-self: flex-end;
 }
 
+.intro{
+    margin: 0 auto;
+    margin-top: 64px;
+    margin-bottom: 124px;
+}
+
+
 /* TEAM                         */
 
 .team__cont{
