@@ -983,12 +983,10 @@ h2.title:nth-of-type(2) span:nth-child(2) {
     }
 
     /* ACADEMY PAGE*/
-    .academy__p{
-        padding: 0 10px ;
-        font-size: .8rem;
-        text-wrap: pretty;
-    }
+
     .academy__box{
+        left: 0;
+        position: relative;
         flex-direction: column;
         width: 100dvw;
         height: 90dvh;
@@ -1058,6 +1056,17 @@ h2.title:nth-of-type(2) span:nth-child(2) {
     .team__li{
         padding: 0;
     }
+    .section__headline{
+        margin-bottom: 24px;
+    }
+
+    .academy__p{
+        padding: 0 10px ;
+        font-size: .9rem;
+        text-wrap: pretty;
+        margin-bottom: 64px ;
+    }
+
 
 }
 
