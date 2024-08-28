@@ -7,16 +7,33 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// Add event listeners for both mouse and touch events
 window.addEventListener('mousemove', handleMouseMove);
 window.addEventListener('resize', handleWindowResize);
+window.addEventListener('touchmove', handleTouchMove, { passive: true }); // Passive for better performance
 
 const spansSlow = document.querySelectorAll('.spanSlow');
 const spansFast = document.querySelectorAll('.spanFast');
 
 let width = window.innerWidth;
 
+// Handle mouse move events
 function handleMouseMove(e) {
     let normalizedPosition = e.pageX / (width / 2) - 1;
+    updateSpanPositions(normalizedPosition);
+}
+
+// Handle touch move events
+function handleTouchMove(e) {
+    if (e.touches && e.touches.length > 0) {
+        let touch = e.touches[0]; // Get the first touch point
+        let normalizedPosition = touch.pageX / (width / 2) - 1;
+        updateSpanPositions(normalizedPosition);
+    }
+}
+
+// Update span positions for both mouse and touch events
+function updateSpanPositions(normalizedPosition) {
     let speedSlow = 100 * normalizedPosition;
     let speedFast = 200 * normalizedPosition;
 
@@ -29,6 +46,7 @@ function handleMouseMove(e) {
     });
 }
 
+// Handle window resize event
 function handleWindowResize() {
     width = window.innerWidth;
 }
