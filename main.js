@@ -129,8 +129,8 @@ document.querySelectorAll('.pricing__card').forEach(card => {
         const offsetY = e.clientY - cardCenterY;
 
         // Scale the rotation angles based on the distance from the center
-        const rotationX = -offsetY / 20; // Tilt based on Y-axis (up and down)
-        const rotationY = offsetX / 20;  // Tilt based on X-axis (left and right)
+        const rotationX = -offsetY / 10; // Tilt based on Y-axis (up and down)
+        const rotationY = offsetX / 10;  // Tilt based on X-axis (left and right)
 
         // Apply the rotation transformation
         card.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
@@ -253,3 +253,94 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// ACADEMY animation. 
+document.addEventListener("DOMContentLoaded", () => {
+    const firstTitleElements = document.querySelectorAll(".title.first span");
+    const secondTitleElements = document.querySelectorAll(".title.second span");
+    const animationDuration = 3000; // Duration of each animation in milliseconds (3 seconds)
+    const delayBetweenTitles = 3200; // Delay for second title to start after the first title
+    const delayBetweenCycles = 3000; // 3 seconds delay between cycles
+
+    function startAnimation() {
+        // Apply animation to both titles
+        firstTitleElements.forEach((element) => {
+            element.style.animation = `titleAnimation ${animationDuration}ms ease forwards`;
+        });
+
+        setTimeout(() => {
+            secondTitleElements.forEach((element) => {
+                element.style.animation = `titleAnimation ${animationDuration}ms ease forwards`;
+            });
+        }, delayBetweenTitles); // Delay the second title's start
+
+        // Set up listener for the end of the animation cycle
+        setTimeout(restartAnimationCycle, animationDuration + delayBetweenTitles + delayBetweenCycles);
+    }
+
+    function restartAnimationCycle() {
+        // Clear animations
+        firstTitleElements.forEach((element) => (element.style.animation = "none"));
+        secondTitleElements.forEach((element) => (element.style.animation = "none"));
+
+        // Force reflow to restart animation
+        void document.body.offsetHeight;
+
+        // Restart the animation cycle
+        startAnimation();
+    }
+
+    // Start the first animation cycle
+    startAnimation();
+});
+//TEAM LI 
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const teamListItems = document.querySelectorAll(".team__li");
+  
+    teamListItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Remove the selected class from all items
+        teamListItems.forEach((el) => el.classList.remove("selected"));
+  
+        // Add the selected class to the clicked item
+        item.classList.add("selected");
+      });
+    });
+  });
+
+  //POP UP
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const anchor = document.querySelector('a[href*="#servicios"]');
+
+    anchor.addEventListener("click", function (e) {
+        const targetUrl = new URL(this.href, window.location.href);
+        const currentUrl = window.location.href;
+
+        // Check if the anchor is pointing to the same page
+        if (targetUrl.pathname === new URL(currentUrl).pathname) {
+            e.preventDefault(); // Prevent the default behavior
+
+            // Scroll to the target element if it exists on the same page
+            const targetElement = document.querySelector(targetUrl.hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+
+                // Optional: Add a pop-up or highlight effect
+                targetElement.classList.add("highlight");
+
+                // Remove the highlight effect after a short delay
+                setTimeout(() => {
+                    targetElement.classList.remove("highlight");
+                }, 1000);
+            }
+        }
+        // If the target is on another page, no action needed since the browser will handle it
+    });
+});
+  
+//tinder like 

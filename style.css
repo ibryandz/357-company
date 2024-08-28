@@ -10,6 +10,10 @@
     --golden-fizz-400: #F8F32B;
 }
 
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for all anchor links */
+  }
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +33,7 @@ a{
 }
 
 body {
-    background-color: var(--scarlet-500);
+    background-color: var(--cod-gray-900);
     position: relative;
 
     height: 100vh;
@@ -37,7 +41,7 @@ body {
 
 .grph{
     z-index: 1;
-    top: 0;
+    top: 15vh;
     position: fixed;
     width: 100%;
     height: 80vh;
@@ -96,6 +100,11 @@ section{
 
 .pricing__card:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pricing__p{
+    font-family: 'Antonio', sans-serif;
+    font-size: 16px;
 }
 
 .contact__cont{
@@ -160,11 +169,11 @@ section{
 h1{
     color: var(--Golden-Fizz-400, #F8F32B);
     text-align: center;
-    font-size: 160px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: 120%; /* 240px */
-    letter-spacing: -8px;
+    letter-spacing: -2px;
     display: inline-block;
     text-shadow: 0px 4px 4px #000;
 
@@ -179,6 +188,7 @@ h1{
     line-height: 99%; /* 126.72px */
     letter-spacing: -7.68px;
 }
+
 
 h5{
     color: var(--cod-gray-50);
@@ -228,20 +238,23 @@ h6{
 
 .nav__li a{
     cursor: pointer;
-    color: var(--cod-gray-900);
+    color: var(--golden-fizz-400);
     font-size: 24px;
     transition: font-size 1.5s ease;
 
 }
 
 
+
 /**     HERO                                 **/
 
 .hero{
     position: relative;
-    top: 260px;
+    top: 20vh;
     z-index: 99;
-    margin-bottom: 300px;
+    height: 80vh;
+    margin-bottom: 248px;
+
 }
 
 .hero__name{
@@ -252,7 +265,7 @@ h6{
 
 }
 .hero__sub{
-    color: var(--cod-gray-900);
+    color: var(--golden-fizz-400);
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
@@ -261,13 +274,7 @@ h6{
 
 }
 
-.heroImage__cont{
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-    height: 600px;
-    gap: 4px
-}
+
 
 .hero__img{
     display: inline-block;
@@ -276,13 +283,63 @@ h6{
     border: solid 2px var(--cod-gray-900);
 }
 
+/* HEROO ANIMAATION */
+.wrap {
+    position: relative;
+    top: 15vh;
+    width: 100%;
+}
+
+.line {
+    width: 100vw;
+    display: flex;
+}
+
+.left, .right {
+    width: 50vw;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.left {
+    color: var(--golden-fizz-400);
+    transform: skew(0deg, -15deg);
+}
+
+.right {
+    color: var(--cod-gray-50
+    );
+    transform: skew(0deg, 15deg);
+}
+
+.left .content,
+.right .content{
+    width: 100vw;
+    text-align: center;
+    transform: translateX(0);
+
+}
+
+.right .content {
+    transform: translateX(-50vw);
+}
+
+span {
+    display: inline-block;
+    font-family: 'Antonio', sans-serif;
+    font-size:8vw;
+    text-transform: uppercase;
+    line-height: 0.8;
+    transition: transform 0.6s ease-out;
+}
+
 /** ABOUT                                               **/
 
 
 
 .srv__box{
     margin-top: 24px;
-    min-height: 900px;
+    height: 700px;
     display: flex;
     background-color: var(--cod-gray-200);
 }
@@ -290,8 +347,7 @@ h6{
 .srv__ul{
     margin-top: 32px;
     position: absolute;
-    right: 0;
-    left: 0;
+    right: 5vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -320,15 +376,16 @@ width: 650px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 77px;
+gap: 48px;
 position: relative;
 margin-left: auto ;
-margin-top: 25%;
-margin-bottom: 25%;
+
 
 }
 
 .srv__left{
+    display: flex;
+    place-content: center;
     background-color: var(--cod-gray-900);
     width: 60%;
 }
@@ -391,7 +448,7 @@ margin-bottom: 25%;
 
 /** TESTIMONIALS             **/
 .testimonials{
-    padding: 0px 10vw;
+    padding: 0px 20dvw;
     display: flex;
     flex-direction: column;
     gap: 128px
@@ -488,11 +545,11 @@ margin-bottom: 25%;
 
 .section__info{
     position: relative;
-    top: 300px;
+    top: 150px;
     color: var(--golden-fizz-400);
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 60vw;
     margin: auto;
     gap: 45px;
 }
@@ -508,19 +565,15 @@ margin-bottom: 25%;
     transform: translateY(0);
 }
 
-
+.about__p strong{
+    font-family: 'Antonio', sans-serif;
+    font-size: 3rem;
+}
 .section__info button{
     place-self: center;
 }
 
-.section__info p{
-    margin: auto;
-    display: block;
-    font-family: 'Inter';
-    font-style: italic;
-    font-weight: 300;
-    max-width: 60vw;
-}
+
 
 
 .academy__p{
@@ -556,7 +609,16 @@ margin-bottom: 25%;
 .team__li{
     padding: 0px 16px;
     font-size: 32px;
+    transition: font-size .3s ease-in;
 }
+
+.team__li:hover{
+    font-size: 38px;
+}
+
+.team__li.selected {
+    font-size: 38px; /* Font size when the element is clicked */
+  }
 
 .team__img{
     border-radius: 245px 60px;
@@ -574,7 +636,7 @@ margin-bottom: 25%;
 
 .foot{
     border: solid 2px var(--cod-gray-50);
-    height: 100%;
+    height: 80vh;
     background-color: var(--cod-gray-900);
 }
 
@@ -608,12 +670,14 @@ margin-bottom: 25%;
 
 /**ANIMATIONS   **/
 
-.shrink .nav {
+.shrink{
     padding: 10px;
+    background-color: var(--cod-gray-50);
+
 }
 
 .shrink .hero__name {
-    font-size: 60px;
+    font-size: 34px;
     color: var(--cod-gray-900);
     text-shadow: none;
     letter-spacing: 5px;
@@ -621,58 +685,17 @@ margin-bottom: 25%;
 
 .shrink .hero__sub {
     font-size: 16px;
+    color: var(--cod-gray-900);
+
 }
 
 .shrink .nav__li a {
+    color: var(--cod-gray-900);
     font-size: 14px;
 }
 
 
-/**/
-.wrap {
-    width: 100%;
-}
 
-.line {
-    width: 100vw;
-    display: flex;
-}
-
-.left, .right {
-    width: 50vw;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.left {
-    color: var(--golden-fizz-400);
-    transform: skew(0deg, -15deg);
-}
-
-.right {
-    transform: skew(0deg, 15deg);
-}
-
-.left .content,
-.right .content{
-    width: 100vw;
-    text-align: center;
-    transform: translateX(0);
-
-}
-
-.right .content {
-    transform: translateX(-50vw);
-}
-
-span {
-    display: inline-block;
-    font-family: 'Antonio', sans-serif;
-    font-size: 11vw;
-    text-transform: uppercase;
-    line-height: 0.8;
-    transition: transform 0.6s ease-out;
-}
 
 /* ACADEMY BOX */
 
@@ -680,7 +703,7 @@ span {
 
     display: flex;
     flex-direction: row;
-    width: 80vw;
+    width: 100%;
     max-height: 877.725px;
     padding: 20.269px 0px;
     justify-content: space-between;
@@ -736,18 +759,33 @@ span {
 }
 
 
-/* SECTION HEADLINE */
+/* SECTION HEADLINE ANIMATION*/
 
 .container {
     text-align: center;
     margin: 0 auto;
-    width: 80vw;
+    width: 100%;
     height: 60vh;
     position: relative;
     overflow: hidden;
+    top: 84px;
     display: flex;
     flex-direction: column;
     place-content: center;
+    margin-bottom: 124px;
+}
+
+
+h2.title span {
+    text-shadow: 0px 4px 4px #000;
+    color: var(--golden-fizz-400);
+    position: relative;
+    display: block;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: titleAnimation 3s ease forwards; /* Managed by JS */
+    line-height: 1.2;
 }
 
 h2.title {
@@ -758,21 +796,11 @@ h2.title {
     position: relative; 
 }
 
-h2.title span {
-    text-shadow: 0px 4px 4px #000;
-    color: var(--golden-fizz-400);
-    position: relative;
-    display: block;
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-    transform: translateY(-50px);
-    opacity: 0;
-    animation: titleAnimation 3s ease forwards;
-    line-height: 1.2;
 
-}
 
 h2.second {
     place-self: center;
+    width: 110%;
 }
 
 h2.title:nth-of-type(1) span:nth-child(1) {
@@ -780,7 +808,10 @@ h2.title:nth-of-type(1) span:nth-child(1) {
 }
 
 h2.title:nth-of-type(1) span:nth-child(2) {
-    animation-delay: 0.7s;
+    animation-delay: 0.6s;
+}
+h2.title:nth-of-type(1) span:nth-child(3) {
+    animation-delay: 1.5s;
 }
 
 h2.title:nth-of-type(2) {
@@ -795,6 +826,7 @@ h2.title:nth-of-type(2) span:nth-child(1) {
 h2.title:nth-of-type(2) span:nth-child(2) {
     animation-delay: 4.2s;
 }
+
 
 @keyframes titleAnimation {
     0% {
@@ -865,4 +897,84 @@ h2.title:nth-of-type(2) span:nth-child(2) {
 
 }
 
-/* LI ANIMATIONS*/
+/* LI AN*/
+/* Base styles for mobile devices 
+
+
+*/
+@media screen (max-width: 767px) {
+   .nav {
+    width: 100dvw;
+   }
+   .hero__name {
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: none;
+    line-height: -1;
+   }
+    .hero__sub {
+    font-size: .8rem;
+    text-shadow: none;
+   }
+   .nav__li a{
+    font-size: .9rem;
+   }
+   .nav__ul{
+    gap: 2px;
+   }
+   .right__ul{
+    align-items: flex-end;
+   }
+   span{
+    font-size: 3.5rem;
+   }
+   /*SERVICE-BOX*/
+
+   .srv__box{
+    height: fit-content;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+   }
+   .srv__ul{
+    place-self: center;
+    top:0;
+    padding: 0;
+   }
+   .srv__box h5{
+    font-size: 3rem;
+    letter-spacing: .005rem ;
+   }
+   .srv__left{
+    height: 80dvh;
+    width: 100%;
+   }
+   .srv__p{ font-size: .8rem;}
+
+   .srv__right{
+    width: 100%; 
+    height: 20dvh;
+}
+/*      TERTIMONIALS*/
+
+    .testimonials{
+        padding: 0;
+    }
+    .comment{
+        width: 100%;
+    }
+    .comment h4{
+        text-align: center;
+        font-size: 1.4rem;
+    }
+    .comm__p{font-size: .8rem;}
+}
+
+/* Styles for tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+}
+
+/* Styles for large tablets and small desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+   
+}
