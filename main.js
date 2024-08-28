@@ -209,13 +209,14 @@ startAnimation();
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll('.section__info');
 
+    // Check if at least part of the element is in the viewport
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top < (window.innerHeight || document.documentElement.clientHeight) && // Top is above or in the viewport
+            rect.bottom > 0 && // Bottom is below or in the viewport
+            rect.left < (window.innerWidth || document.documentElement.clientWidth) && // Left is left or in the viewport
+            rect.right > 0 // Right is right or in the viewport
         );
     }
 
@@ -233,9 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
     checkVisibility();
 
     // Check on scroll
-    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('scroll', checkVisibility, { passive: true }); // Improved scrolling performance with passive listener
 });
-
 
 // TEAM 
 

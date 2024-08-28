@@ -35,7 +35,6 @@ a{
 body {
     background-color: var(--cod-gray-900);
     position: relative;
-
     height: 100vh;
 }
 
@@ -635,9 +634,10 @@ margin-left: auto ;
 /* FOOOOOOTER */
 
 .foot{
+    position: relative;
+    z-index: 9999999999;
     border: solid 2px var(--cod-gray-50);
     height: 80vh;
-    background-color: var(--cod-gray-900);
 }
 
 .foot h2{
@@ -898,13 +898,10 @@ h2.title:nth-of-type(2) span:nth-child(2) {
 }
 
 /* LI AN*/
-/* Base styles for mobile devices 
-
-
-*/
-@media screen (max-width: 767px) {
+/* Base styles for mobile devices */
+@media (max-width: 767px) {
    .nav {
-    width: 100dvw;
+    width: 100%;
    }
    .hero__name {
     margin: 0;
@@ -948,7 +945,8 @@ h2.title:nth-of-type(2) span:nth-child(2) {
     height: 80dvh;
     width: 100%;
    }
-   .srv__p{ font-size: .8rem;}
+   .srv__p{ 
+    font-size: .8rem;}
 
    .srv__right{
     width: 100%; 
@@ -957,7 +955,6 @@ h2.title:nth-of-type(2) span:nth-child(2) {
 /*      TERTIMONIALS*/
 
     .testimonials{
-        padding: 0;
     }
     .comment{
         width: 100%;
@@ -966,7 +963,102 @@ h2.title:nth-of-type(2) span:nth-child(2) {
         text-align: center;
         font-size: 1.4rem;
     }
-    .comm__p{font-size: .8rem;}
+    .comm__p{
+        font-size: .8rem;
+    }
+
+
+/*  MAIN ACADEMY                 */
+
+    .academy h2, .container h2, .section__headline, .team h2{
+    font-size: 3.5rem;
+    letter-spacing: .05rem;
+    text-wrap: pretty;
+    }
+    .academy__p, .about__p{
+        text-wrap: pretty;
+        text-align: center;
+        font-size: .8rem;
+        max-width: 100%;
+    }
+
+    /* ACADEMY PAGE*/
+    .academy__p{
+        padding: 0 10px ;
+        font-size: .8rem;
+        text-wrap: pretty;
+    }
+    .academy__box{
+        flex-direction: column;
+        width: 100dvw;
+        height: 90dvh;
+    }
+
+    .about .section__info{
+        width: 100%;
+        flex-direction: column;
+    }
+    .academy__box .left__side, .right__side {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 50%;
+    }
+    .academy__box h3{
+        font-size: 2rem;
+
+    }
+    .left__side{
+        width: 100%;
+    }
+    /*  FOOTER */
+    .foot{
+        height: 60dvh;
+    }
+    .foot h2{
+        position: relative;
+        top: 3rem;
+        font-size: 5rem;
+    }
+
+    .foot__ul li{
+        font-size: .6rem;
+
+        font-weight: 100;
+    }
+    /* ABOUT PAGE */
+
+    .about .section__info p{
+        width: 80%;
+    }
+    .about__p strong{
+        font-size: 2rem;
+
+    }
+    .about__img{
+        width: 100%;
+    }
+    /*  TEAM            */
+    .team__cont{
+        width: 100dvw;
+
+    }
+    .team__img{
+        height: 70dvh;
+        width: 100dvw;
+    }
+    .team__ul{
+        place-self: flex-start;
+        position:  absolute;
+        margin-top: 20px;
+        left: 0;
+    }
+    .team__li{
+        padding: 0;
+    }
+
 }
 
 /* Styles for tablets */
